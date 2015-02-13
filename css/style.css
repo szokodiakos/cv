@@ -1,0 +1,40 @@
+h1, h2 {
+    font-family: 'Crete Round', serif;
+    text-shadow:
+    -1px -1px 0 #ffffff,
+    0px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    0px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+h3 {
+    font-family: 'Crete Round', serif;
+}
+
+body {
+    background-image: url("../img/bck.jpg");
+}
+
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+}
+
+.carousel-caption{
+    font-family: 'Roboto Slab', serif;
+    text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.center {
+    text-align: center;
+}
+
+.transparent {
+    background-color: rgba(255, 255, 255, 0.5);
+}
