@@ -1,12 +1,12 @@
 h1, h2 {
     font-family: 'Crete Round', serif;
     text-shadow:
-    -1px -1px 0 #ffffff,
-    0px -1px 0 #ffffff,
-    1px -1px 0 #ffffff,
-    -1px 1px 0 #ffffff,
-    0px 1px 0 #ffffff,
-    1px 1px 0 #ffffff;
+    -1px -1px 0 #bdc3c7,
+    0px -1px 0 #bdc3c7,
+    1px -1px 0 #bdc3c7,
+    -1px 1px 0 #bdc3c7,
+    0px 1px 0 #bdc3c7,
+    1px 1px 0 #bdc3c7;
 }
 
 h2 {
@@ -18,7 +18,7 @@ h3 {
 }
 
 body {
-    background-image: url("../img/bck.jpg");
+    background-image: url("../img/wal.jpg");
 }
 
 .jumbotron {
@@ -38,3 +38,5 @@ body {
 .transparent {
     background-color: rgba(255, 255, 255, 0.5);
 }
+
+.
