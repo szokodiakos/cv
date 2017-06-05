@@ -8,7 +8,7 @@ import data from './data.json';
 
 const Header = () => (
   <Grid className="cv-body">
-    <Row className="green-background">
+    <Row className="green-background padding-bottom-10">
       <Col sm={8} xs={12}>
         <Row className="name-title">
           <Col xs={12} smHidden={true} mdHidden={true} lgHidden={true} className="pic-xs">
