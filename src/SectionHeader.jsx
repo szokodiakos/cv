@@ -2,6 +2,8 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
+import './SectionHeader.css';
+
 const SectionHeader = ({ icon, title }) => (
   <Col xs={12} className="section">
     <div className="circle yellow-background section-circle">

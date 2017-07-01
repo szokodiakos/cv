@@ -2,6 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { Grid, Row } from 'react-bootstrap';
 
+import './Footer.css';
+
 const Footer = () => (
   <Grid className="cv-body">
     <Row className="green-background">

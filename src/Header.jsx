@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import './Header.css';
 import CirclePic from './CirclePic';
 import NameAndTitle from './NameAndTitle';
 import Info from './Info';

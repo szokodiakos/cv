@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './NameAndTitle.css';
 import data from './data.json';
 
 const NameAndTitle = () => (

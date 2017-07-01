@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './CirclePic.css';
 import data from './data.json';
 
 const CirclePic = ({ pullRight }) => (
