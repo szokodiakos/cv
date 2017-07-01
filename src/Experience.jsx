@@ -8,7 +8,7 @@ import data from './data.json';
 const Experience = () => (
   <div>
     <Row>
-      <SectionHeader icon={data.experience.icon} title={data.experience.title}/>
+      <SectionHeader icon={data.experience.icon} title={data.experience.title} />
     </Row>
     <Row>
       {data.experience.items.map(item => <Facts key={item.date} {...item} />)}

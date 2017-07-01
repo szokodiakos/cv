@@ -8,10 +8,10 @@ import PersonalSkills from './PersonalSkills';
 
 const Content = () => (
   <Grid className="cv-body">
-    <About/>
-    <Experience/>
-    <Education/>
-    <PersonalSkills/>
+    <About />
+    <Experience />
+    <Education />
+    <PersonalSkills />
   </Grid>
 );
 

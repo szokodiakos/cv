@@ -15,4 +15,8 @@ const CirclePic = ({ pullRight }) => (
   </div>
 );
 
+CirclePic.propTypes = {
+  pullRight: React.PropTypes.bool.isRequired,
+};
+
 export default CirclePic;

@@ -12,11 +12,11 @@ const App = () => {
   ReactGA.pageview(window.location.pathname);
   return (
     <div className="bitter">
-      <Header/>
-      <Content/>
-      <Footer/>
+      <Header />
+      <Content />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

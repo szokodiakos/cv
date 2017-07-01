@@ -12,19 +12,19 @@ const Header = () => (
     <Row className="green-background padding-bottom-10">
       <Col sm={8} xs={12}>
         <Row className="name-title">
-          <Col xs={12} smHidden={true} mdHidden={true} lgHidden={true} className="pic-xs">
-            <CirclePic/>
+          <Col xs={12} smHidden mdHidden lgHidden className="pic-xs">
+            <CirclePic />
           </Col>
           <Col xs={12} className="text-xs-center">
-            <NameAndTitle/>
+            <NameAndTitle />
           </Col>
           <div className="info">
-            {data.infos.map(info => <Info key={info.icon} data={info}/>)}
+            {data.infos.map(info => <Info key={info.icon} data={info} />)}
           </div>
         </Row>
       </Col>
-      <Col sm={4} xsHidden={true}>
-        <CirclePic pullRight={true}/>
+      <Col sm={4} xsHidden>
+        <CirclePic pullRight />
       </Col>
     </Row>
   </Grid>

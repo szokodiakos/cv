@@ -7,7 +7,7 @@ import data from './data.json';
 const About = () => (
   <div>
     <Row>
-      <SectionHeader icon={data.about.icon} title={data.about.title}/>
+      <SectionHeader icon={data.about.icon} title={data.about.title} />
     </Row>
     <Row>
       <Col xs={12} className="text-content">{data.about.text}</Col>
