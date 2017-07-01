@@ -41,10 +41,12 @@
         "title": "Full-stack Software Engineer",
         "date": "May 2015 - Present",
         "points": [
-          "Development of several microservice and monolith web",
+          "Development of several microservice and monolith web app",
           "Architecting multiple projects module-, API- and database structure-wise",
+          "Author of multiple technology-related blog posts",
+          "Competence in development of social network application, cloud-based healthcare management solution, sports betting application, innovative sales web and mobile app, marketing-through-SMS solution",
           "Used languages: JavaScript (ES5/2015/2017), TypeScript, Python",
-          "Used technologies: Node (notable frameworks: Express, Mongoose, Sequelize, Serverless), Angular (1 and 2), React, multiple SQL (MySQL, Postgres) and NoSQL (MongoDB, Redis) database technologies, Docker, Git, Bash, AWS (for operation)"
+          "Used technologies: Node (notable frameworks: Express, Koa, Mongoose, Sequelize, Serverless), AngularJS (v1.x), Angular (v2 and up), React (with Redux), multiple SQL (MySQL, Postgres) and NoSQL (MongoDB, Redis) database technologies, Docker, Git, Bash, AWS and Heroku (for ops)"
         ]
       },
       {
@@ -54,7 +56,7 @@
         "points": [
           "Browser based data visualization solution",
           "Used languages: R, Processing (Java)",
-          "Shiny web framework (for R), Dojo (and Dijit) Toolkit and various JavaScript charting libraries"
+          "Used technologies: Shiny web framework (for R), Dojo (and Dijit) Toolkit and various JavaScript charting libraries"
         ]
       }
     ]
