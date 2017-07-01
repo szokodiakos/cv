@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './CirclePic.css';
 import data from './data.json';
@@ -16,7 +17,7 @@ const CirclePic = ({ pullRight }) => (
 );
 
 CirclePic.propTypes = {
-  pullRight: React.PropTypes.bool.isRequired,
+  pullRight: PropTypes.bool.isRequired,
 };
 
 export default CirclePic;

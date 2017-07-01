@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Info = ({ data }) => {
   const text = <span className="grey-color">{data.text}</span>;
@@ -12,12 +13,12 @@ const Info = ({ data }) => {
 };
 
 const dataPropType = {
-  icon: React.PropTypes.string.isRequired,
-  link: React.PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
 };
 
 Info.propTypes = {
-  data: React.PropTypes.shape(dataPropType).isRequired,
+  data: PropTypes.shape(dataPropType).isRequired,
 };
 
 export default Info;

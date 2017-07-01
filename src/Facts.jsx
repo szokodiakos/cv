@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Facts = ({ name, title, date, points }) => (
   <Col xs={12} className="text-content">
@@ -22,10 +23,10 @@ const Facts = ({ name, title, date, points }) => (
 );
 
 Facts.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  date: React.PropTypes.string.isRequired,
-  points: React.PropTypes.arrayOf(React.PropTypes.string),
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  points: PropTypes.arrayOf(PropTypes.string),
 };
 
 Facts.defaultProps = {

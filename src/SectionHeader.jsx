@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 import './SectionHeader.css';
 
@@ -14,8 +15,8 @@ const SectionHeader = ({ icon, title }) => (
 );
 
 SectionHeader.propTypes = {
-  icon: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default SectionHeader;
