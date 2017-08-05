@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2017-07-01",
+  "lastUpdated": "2017-08-05",
   "name": "Ákos Szokodi",
   "title": "software engineer",
   "pic": "https://avatars0.githubusercontent.com/u/5138121?v=3&u=f605ee1d860c0118c9967d959ee3044378042d42&s=400",
@@ -47,7 +47,7 @@
           "Author of multiple technology-related blog posts",
           "Competence in development of social network application, cloud-based healthcare management solution, sports betting application, innovative sales web and mobile app, marketing-through-SMS solution",
           "Used languages: JavaScript (ES5/2015/2017), TypeScript, Python",
-          "Used technologies: Node (notable frameworks: Express, Koa, Mongoose, Sequelize, Serverless), AngularJS (v1.x), Angular (v2 and up), React (with Redux), multiple SQL (MySQL, Postgres) and NoSQL (MongoDB, Redis) database technologies, Docker, Git, Bash, AWS and Heroku (for ops)"
+          "Used technologies: Node (notable frameworks: Express, Koa, Mongoose, Sequelize, Serverless), AngularJS (v1.x), Angular (v2 and up), React (with Redux), Web components, multiple SQL (MySQL, Postgres) and NoSQL (MongoDB, Redis) database technologies, Docker, Git, Bash, AWS and Heroku (for ops)"
         ]
       },
       {
