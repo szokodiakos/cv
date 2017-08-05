@@ -19,6 +19,14 @@
   height: 250px;
 }
 
+.inner-circle-background {
+  background: #EFC94C;
+}
+
+.outer-circle-background {
+  background: #334D5C;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;

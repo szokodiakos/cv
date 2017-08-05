@@ -5,8 +5,8 @@ import './CirclePic.css';
 import data from './data.json';
 
 const CirclePic = ({ pullRight }) => (
-  <div className={`circle outer-circle center grey-background ${pullRight && 'pull-right'}`}>
-    <div className="circle inner-circle yellow-background">
+  <div className={`circle outer-circle center outer-circle-background ${pullRight && 'pull-right'}`}>
+    <div className="circle inner-circle inner-circle-background">
       <img
         className="img-circle profile-pic"
         alt={data.name}

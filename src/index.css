@@ -23,31 +23,3 @@ a {
   margin-top: 15px;
   font-family: 'Cabin', sans-serif;
 }
-
-.green-background {
-  background: #45B29D;
-}
-
-.grey-background {
-  background: #334D5C;
-}
-
-.yellow-background {
-  background: #EFC94C;
-}
-
-.grey-color {
-  color: #334D5C;
-}
-
-.yellow-color {
-  color: #EFC94C;
-}
-
-.white-color {
-  color: white;
-}
-
-.green-color {
-  color: #45B29D;
-}

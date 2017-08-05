@@ -24,3 +24,15 @@
   margin-top: 11px;
   margin-left: 5px;
 }
+
+.section-header-background {
+  background: #45B29D;
+}
+
+.section-header-icon-background {
+  background: #EFC94C;
+}
+
+.section-header-title-color {
+  color: white;
+}

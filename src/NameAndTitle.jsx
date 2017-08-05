@@ -5,9 +5,9 @@ import data from './data.json';
 
 const NameAndTitle = () => (
   <div>
-    <span className="grey-color xx-large nowrap">{data.name}</span>
-    <span className="yellow-color x-large"> / </span>
-    <span className="grey-color x-large nowrap">{data.title}</span>
+    <span className="name-title-color xx-large nowrap">{data.name}</span>
+    <span className="name-title-separator-color x-large"> / </span>
+    <span className="name-title-color x-large nowrap">{data.title}</span>
   </div>
 );
 

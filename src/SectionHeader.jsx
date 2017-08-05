@@ -7,10 +7,10 @@ import './SectionHeader.css';
 
 const SectionHeader = ({ icon, title }) => (
   <Col xs={12} className="section">
-    <div className="circle yellow-background section-circle">
+    <div className="circle section-header-icon-background section-circle">
       <FontAwesome name={icon} size="2x" className="icon section-icon" />
     </div>
-    <div className="section-label large green-background white-color">{title}</div>
+    <div className="section-label large section-header-background section-header-title-color">{title}</div>
   </Col>
 );
 

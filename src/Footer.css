@@ -8,6 +8,14 @@
   font-size: small;
 }
 
+.footer-background {
+  background: #45B29D;
+}
+
+.footer-color {
+  color: white;
+}
+
 @media print {
   .no-print, .no-print * {
     display: none !important;

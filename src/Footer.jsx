@@ -6,8 +6,8 @@ import data from './data.json';
 
 const Footer = () => (
   <Grid className="cv-body no-print">
-    <Row className="green-background">
-      <div className="closing white-color small">
+    <Row className="footer-background">
+      <div className="closing footer-color small">
         {data.lastUpdated}
       </div>
     </Row>

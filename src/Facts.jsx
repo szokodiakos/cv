@@ -3,19 +3,21 @@ import { Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
 
+import './Facts.css';
+
 const Facts = ({ name, title, date, points }) => (
   <Col xs={12} className="text-content">
     {name && <span className="large">{name}</span>}
     <ul className="fa-ul">
       {title && <li>
-        <FontAwesome name="dot-circle-o" className="fa-li green-color" />{title}
+        <FontAwesome name="dot-circle-o" className="fa-li primary-fact-color" />{title}
       </li>}
       {date && <li>
-        <FontAwesome name="dot-circle-o" className="fa-li yellow-color" />{date}
+        <FontAwesome name="dot-circle-o" className="fa-li interval-fact-color" />{date}
       </li>}
       {points.map(point => (
         <li key={point}>
-          <FontAwesome name="dot-circle-o" className="fa-li grey-color" />{point}
+          <FontAwesome name="dot-circle-o" className="fa-li misc-fact-color" />{point}
         </li>
       ))}
     </ul>
