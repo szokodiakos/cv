@@ -7,3 +7,9 @@
 .small {
   font-size: small;
 }
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
