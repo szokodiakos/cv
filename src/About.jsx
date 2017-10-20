@@ -10,7 +10,7 @@ const About = () => (
       <SectionHeader icon={data.about.icon} title={data.about.title} />
     </Row>
     <Row>
-      <Col xs={12} className="text-content">{data.about.text}</Col>
+      <Col xs={12} className="text-content"><div dangerouslySetInnerHTML={{ __html: data.about.text }} /></Col>
     </Row>
   </div>
 );

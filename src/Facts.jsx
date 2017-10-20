@@ -17,7 +17,7 @@ const Facts = ({ name, title, date, points }) => (
       </li>}
       {points.map(point => (
         <li key={point}>
-          <FontAwesome name="dot-circle-o" className="fa-li misc-fact-color" />{point}
+          <FontAwesome name="dot-circle-o" className="fa-li misc-fact-color" /><div dangerouslySetInnerHTML={{ __html: point }} />
         </li>
       ))}
     </ul>
@@ -25,13 +25,15 @@ const Facts = ({ name, title, date, points }) => (
 );
 
 Facts.propTypes = {
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.string,
   points: PropTypes.arrayOf(PropTypes.string),
 };
 
 Facts.defaultProps = {
+  name: '',
+  date: '',
   points: [],
 };
 

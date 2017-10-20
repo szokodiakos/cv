@@ -16,7 +16,7 @@ const Info = ({ data }) => {
 
 const dataPropType = {
   icon: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
 };
 
 Info.propTypes = {

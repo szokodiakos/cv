@@ -17,7 +17,11 @@ const CirclePic = ({ pullRight }) => (
 );
 
 CirclePic.propTypes = {
-  pullRight: PropTypes.bool.isRequired,
+  pullRight: PropTypes.bool,
+};
+
+CirclePic.defaultProps = {
+  pullRight: false,
 };
 
 export default CirclePic;

@@ -22,4 +22,5 @@ a {
 .text-content {
   margin-top: 15px;
   font-family: 'Cabin', sans-serif;
+  text-align: justify;
 }
