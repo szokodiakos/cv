@@ -36,7 +36,7 @@
   "about": {
     "title": "About",
     "icon": "info",
-    "text": "Full-stack Software Engineer mainly with backend and database orientation. Passionate about software quality (UX design, design patterns, clean coding, unit testing, linting). Fluent in JavaScript, although believes polyglot development is a good philosophy as engineers should not be locked into a single language and should always adapt the technology according to the problem. Likes to try out new libraries/languages, write blog posts and hack together useful solutions (which <a target=\"_blank\" href=\"https://github.com/szokodiakos/typegoose\">sometimes</a> end <a target=\"_blank\" href=\"https://github.com/szokodiakos/rereddit\">up</a> on <a target=\"_blank\" href=\"https://github.com/szokodiakos/node-otpbank\">GitHub</a>)."
+    "text": "Full-stack Software Engineer from Hungary. Passionate about software quality (UX design, design patterns, clean coding, unit testing, linting). Fluent in JavaScript, although believes polyglot development is a good philosophy as engineers should not be locked into a single language and should always adapt the technology according to the problem. Likes to try out new libraries/languages, write blog posts and hack together useful solutions (which <a target=\"_blank\" href=\"https://github.com/szokodiakos/typegoose\">sometimes</a> end <a target=\"_blank\" href=\"https://github.com/szokodiakos/rereddit\">up</a> on <a target=\"_blank\" href=\"https://github.com/szokodiakos/node-otpbank\">GitHub</a>)."
   },
   "experience": {
     "title": "Experience",
