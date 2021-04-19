@@ -1,5 +1,6 @@
 export const data = {
   name: "Ákos Szokodi",
+  location: "🇳🇱 Almere",
   profile: "profile.png",
   email: "mailto:szokodiakos+cv@gmail.com",
   gitHub: "https://github.com/szokodiakos",

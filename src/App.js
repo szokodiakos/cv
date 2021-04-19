@@ -1,31 +1,30 @@
 import React from "react"
 import { data } from "./data"
 
-const preWrap = { whiteSpace: "pre-wrap" }
-
 export const App = () => (
   <>
-    <h1>CV - {data.name}</h1>
+    <h1>📝 {data.name} CV</h1>
 
     <img src={data.profile} alt="profile"></img>
 
     <ul>
+      <li>{data.location}</li>
       <li>
         <a href={data.email}>💌 Email</a>
       </li>
       <li>
         <a href={data.gitHub}>
-          <img src="github.png" alt="github"></img> GitHub
+          <Logo src="github.png" alt="github"></Logo> GitHub
         </a>
       </li>
       <li>
         <a href={data.linkedIn}>
-          <img src="linkedin.png" alt="linkedin"></img> LinkedIn
+          <Logo src="linkedin.png" alt="linkedin"></Logo> LinkedIn
         </a>
       </li>
     </ul>
 
-    <p style={preWrap}>{data.intro.trim()}</p>
+    <Paragraph>{data.intro.trim()}</Paragraph>
 
     <h2>🛠 Work Experience</h2>
 
@@ -71,7 +70,7 @@ const Work = ({ company, where, to, from, description, keywords }) => (
         {from} 👉 {to}
       </li>
       <li>
-        <p style={preWrap}>{description.trim()}</p>
+        <Paragraph>{description.trim()}</Paragraph>
       </li>
       <li>Keywords: {keywords.join(", ")}</li>
     </ul>
@@ -97,4 +96,16 @@ const Language = ({ language, level }) => (
   <>
     {language}: {level}
   </>
+)
+
+const Paragraph = ({ style = {}, ...props }) => (
+  <p {...props} style={{ ...props.style, whiteSpace: "pre-wrap" }}></p>
+)
+
+const Logo = ({ style = {}, ...props }) => (
+  <img
+    {...props}
+    style={{ ...props.style, height: "1em" }}
+    alt={props.alt}
+  ></img>
 )
