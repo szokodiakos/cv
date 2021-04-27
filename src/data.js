@@ -1,11 +1,12 @@
 export const data = {
   name: "Ákos Szokodi",
-  location: "🇳🇱 Almere",
+  title: "Software Consultant",
+  location: "🇳🇱 Amsterdam area",
   profile: "profile.png",
   email: "mailto:szokodiakos+cv@gmail.com",
   gitHub: "https://github.com/szokodiakos",
   linkedIn: "https://linkedin.com/in/szokodiakos",
-  intro: `
+  about: `
 Passionate about software quality and design, such as UX design, design patterns, clean coding, testing.
 
 Believes that things should be done as simple as possible with pragmatic approaches and that solutions doesn't always require coding. Hence, thinks that learning soft-skills is as important as learning hard tech skills as a Software Engineer.
@@ -13,8 +14,6 @@ Believes that things should be done as simple as possible with pragmatic approac
 Likes to work on both backend and frontend, fluent in {Type|Java}Script, although believes polyglot development is a good philosophy as devs should not be locked into a single language and should always adapt the technology according to the problem.
 
 Constantly on the lookout to learn new things, as well as to share things he already knows via blog posts or some other form of knowledge sharing.
-
-👋
 `,
   workExperience: [
     {
@@ -22,6 +21,7 @@ Constantly on the lookout to learn new things, as well as to share things he alr
         name: "Reaktor",
         logo: "reaktor.png",
       },
+      title: "Software Consultant",
       where: "🇳🇱 Amsterdam",
       to: "current",
       from: "2018 august",
@@ -55,6 +55,7 @@ When not working for a client, helps the Reaktor Talent Growth Team by both lead
         name: "Coding Sans",
         logo: "codingsans.png",
       },
+      title: "Software Developer",
       where: "🇭🇺 Budapest",
       to: "2018 june",
       from: "2015 may",
@@ -70,6 +71,7 @@ Authored various technology-related posts on the company blog.
         name: "Quanopt",
         logo: "quanopt.png",
       },
+      title: "Junior Software Developer",
       where: "🇭🇺 Budapest",
       to: "2014 august",
       from: "2013 june",

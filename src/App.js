@@ -3,11 +3,13 @@ import { data } from "./data"
 
 export const App = () => (
   <>
-    <h1>📝 {data.name} CV</h1>
+    <h1>
+      📝 {data.name} - {data.title} CV
+    </h1>
 
     <img src={data.profile} alt="profile"></img>
 
-    <ul>
+    <ul style={{ marginBottom: "3em" }}>
       <li>{data.location}</li>
       <li>
         <a href={data.email}>💌 Email</a>
@@ -24,13 +26,15 @@ export const App = () => (
       </li>
     </ul>
 
-    <Paragraph>{data.intro.trim()}</Paragraph>
+    <h2>✨ About</h2>
+
+    <Paragraph style={{ marginBottom: "3em" }}>{data.about.trim()}</Paragraph>
 
     <h2>🛠 Work Experience</h2>
 
     <ul>
       {data.workExperience.map((work) => (
-        <li key={work.to}>
+        <li key={work.to} style={{ marginBottom: "3em" }}>
           <Work {...work}></Work>
         </li>
       ))}
@@ -40,7 +44,7 @@ export const App = () => (
 
     <ul>
       {data.education.map((education) => (
-        <li key={education.to}>
+        <li key={education.to} style={{ marginBottom: "3em" }}>
           <Education {...education}></Education>
         </li>
       ))}
@@ -58,12 +62,13 @@ export const App = () => (
   </>
 )
 
-const Work = ({ company, where, to, from, description, keywords }) => (
+const Work = ({ company, title, where, to, from, description, keywords }) => (
   <>
-    <img src={company.logo} alt={company.name}></img>
-
-    <h3>{company.name}</h3>
-
+    <ImageAndTitle
+      image={company.logo}
+      title={company.name}
+      subTitle={title}
+    ></ImageAndTitle>
     <ul>
       <li>{where}</li>
       <li>
@@ -79,12 +84,12 @@ const Work = ({ company, where, to, from, description, keywords }) => (
 
 const Education = ({ school, logo, degree, to, from }) => (
   <>
-    <img src={logo} alt={school}></img>
-
-    <h3>{degree}</h3>
-
+    <ImageAndTitle
+      image={logo}
+      title={school}
+      subTitle={degree}
+    ></ImageAndTitle>
     <ul>
-      <li>{school}</li>
       <li>
         {from} 👉 {to}
       </li>
@@ -99,13 +104,25 @@ const Language = ({ language, level }) => (
 )
 
 const Paragraph = ({ style = {}, ...props }) => (
-  <p {...props} style={{ ...props.style, whiteSpace: "pre-wrap" }}></p>
+  <p {...props} style={{ ...style, whiteSpace: "pre-wrap" }}></p>
 )
 
 const Logo = ({ style = {}, ...props }) => (
-  <img
-    {...props}
-    style={{ ...props.style, height: "1em" }}
-    alt={props.alt}
-  ></img>
+  <img {...props} style={{ ...style, height: "1em" }} alt={props.alt}></img>
+)
+
+const ImageAndTitle = ({ image, title, subTitle }) => (
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <img
+      src={image}
+      alt={title}
+      title={title}
+      style={{ border: "1px solid black", borderRadius: "10px", height: "3em" }}
+    ></img>
+
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <h3 style={{ margin: 0, marginLeft: 10 }}>{title}</h3>
+      <h4 style={{ margin: 0, marginLeft: 10 }}>{subTitle}</h4>
+    </div>
+  </div>
 )
