@@ -7,7 +7,7 @@ export const App = () => (
       📝 {data.name} - {data.title} CV
     </h1>
 
-    <img src={data.profile} alt="profile"></img>
+    <img src={data.profile} alt="profile" style={{ height: "10em" }}></img>
 
     <ul style={{ marginBottom: "3em" }}>
       <li>{data.location}</li>
