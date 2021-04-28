@@ -1,5 +1,6 @@
 import React from "react"
 import { data } from "./data"
+import styled from "styled-components"
 
 const colors = {
   WHITE: "#FFFFFF",
@@ -11,15 +12,30 @@ const colors = {
   BLUE: "#1D74CA",
 }
 
+const maxWidth = 650
+
+const Page = styled.div`
+  max-width: ${maxWidth}px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+`
+
+const Paragraph = styled.p`
+  white-space: pre-wrap;
+  margin: 0px;
+`
+
+const ProfilePic = styled.img`
+  height: 10em;
+`
+
+const Logo = styled.img`
+  height: 1em;
+`
+
 export const App = () => (
-  <div
-    style={{
-      maxWidth: "650px",
-      margin: "auto",
-      paddingLeft: "25px",
-      paddingRight: "25px",
-    }}
-  >
+  <Page>
     <Title style={{ backgroundColor: colors.GREEN, color: colors.WHITE }}>
       <h1 style={{ textAlign: "center", marginBottom: "0px" }}>{data.name}</h1>
       <h2 style={{ textAlign: "center", marginTop: "0px" }}>{data.title}</h2>
@@ -33,7 +49,7 @@ export const App = () => (
         marginBottom: "1em",
       }}
     >
-      <img src={data.profile} alt="profile" style={{ height: "10em" }}></img>
+      <ProfilePic src={data.profile} alt="profile"></ProfilePic>
       <ul>
         <li>{data.location}</li>
         <li>
@@ -126,60 +142,65 @@ export const App = () => (
     <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
       <h2 style={{ textAlign: "center" }}>✌️</h2>
     </Title>
-  </div>
+  </Page>
 )
+
+const ActualTitleWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  width: 100%;
+`
+
+const ActualTitle = styled.div`
+  max-width: ${maxWidth}px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const PhantomTitle = styled.div`
+  visibility: hidden;
+`
 
 const Title = ({ children, style }) => (
   <div style={{ overflow: "auto" }}>
-    <div
-      style={{
-        position: "absolute",
-        left: "0px",
-        width: "100%",
-        ...style,
-      }}
-    >
-      <div
-        style={{ maxWidth: "650px", marginLeft: "auto", marginRight: "auto" }}
-      >
-        {children}
-      </div>
-    </div>
-    <div style={{ visibility: "hidden" }}>{children}</div>
+    <ActualTitleWrapper style={style}>
+      <ActualTitle>{children}</ActualTitle>
+    </ActualTitleWrapper>
+    <PhantomTitle>{children}</PhantomTitle>
   </div>
 )
 
+const InnerListItem = styled.li`
+  margin-left: 38px;
+`
+
 const Work = ({ company, title, where, to, from, description, keywords }) => (
   <>
-    <ImageAndTitle
+    <ListItem
       image={company.logo}
       title={company.name}
       subTitle={title}
-    ></ImageAndTitle>
+    ></ListItem>
     <ul>
-      <li>{where}</li>
-      <li>
+      <InnerListItem>{where}</InnerListItem>
+      <InnerListItem>
         {from} 👉 {to}
-      </li>
-      <li>
+      </InnerListItem>
+      <InnerListItem>
         <Paragraph>{description.trim()}</Paragraph>
-      </li>
-      <li>Keywords: {keywords.join(", ")}</li>
+      </InnerListItem>
+      <InnerListItem>Keywords: {keywords.join(", ")}</InnerListItem>
     </ul>
   </>
 )
 
 const Education = ({ school, logo, degree, to, from }) => (
   <>
-    <ImageAndTitle
-      image={logo}
-      title={school}
-      subTitle={degree}
-    ></ImageAndTitle>
+    <ListItem image={logo} title={school} subTitle={degree}></ListItem>
     <ul>
-      <li>
+      <InnerListItem>
         {from} 👉 {to}
-      </li>
+      </InnerListItem>
     </ul>
   </>
 )
@@ -190,26 +211,29 @@ const Language = ({ language, level }) => (
   </>
 )
 
-const Paragraph = ({ style = {}, ...props }) => (
-  <p {...props} style={{ whiteSpace: "pre-wrap", margin: "0px", ...style }}></p>
-)
+const ListImage = styled.img`
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 3em;
+`
 
-const Logo = ({ style = {}, ...props }) => (
-  <img {...props} style={{ height: "1em", ...style }} alt={props.alt}></img>
-)
+const ListTitle = styled.h3`
+  margin: 0;
+  margin-left: 10px;
+`
 
-const ImageAndTitle = ({ image, title, subTitle }) => (
+const ListSubtitle = styled.h4`
+  margin: 0;
+  margin-left: 10px;
+`
+
+const ListItem = ({ image, title, subTitle }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
-    <img
-      src={image}
-      alt={title}
-      title={title}
-      style={{ border: "1px solid black", borderRadius: "10px", height: "3em" }}
-    ></img>
+    <ListImage src={image} alt={title} title={title}></ListImage>
 
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h3 style={{ margin: "0px", marginLeft: "10px" }}>{title}</h3>
-      <h4 style={{ margin: "0px", marginLeft: "10px" }}>{subTitle}</h4>
+      <ListTitle>{title}</ListTitle>
+      <ListSubtitle>{subTitle}</ListSubtitle>
     </div>
   </div>
 )
