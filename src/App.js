@@ -1,9 +1,19 @@
 import React from "react"
 import { data } from "./data"
 
+const colors = {
+  WHITE: "#FFFFFF",
+  GREEN: "#32A995",
+  YELLOW: "#F6A008",
+  ORANGE: "#F25846",
+  RED: "#C4253F",
+  PURPLE: "#6138C2",
+  BLUE: "#1D74CA",
+}
+
 export const App = () => (
   <>
-    <h1>
+    <h1 style={{ backgroundColor: colors.GREEN, color: colors.WHITE }}>
       📝 {data.name} - {data.title} CV
     </h1>
 
@@ -26,11 +36,15 @@ export const App = () => (
       </li>
     </ul>
 
-    <h2>✨ About</h2>
+    <h2 style={{ backgroundColor: colors.YELLOW, color: colors.WHITE }}>
+      ✨ About
+    </h2>
 
     <Paragraph style={{ marginBottom: "3em" }}>{data.about.trim()}</Paragraph>
 
-    <h2>🛠 Work Experience</h2>
+    <h2 style={{ backgroundColor: colors.ORANGE, color: colors.WHITE }}>
+      🛠 Work Experience
+    </h2>
 
     <ul>
       {data.workExperience.map((work) => (
@@ -40,7 +54,9 @@ export const App = () => (
       ))}
     </ul>
 
-    <h2>🎓 Education</h2>
+    <h2 style={{ backgroundColor: colors.RED, color: colors.WHITE }}>
+      🎓 Education
+    </h2>
 
     <ul>
       {data.education.map((education) => (
@@ -50,7 +66,9 @@ export const App = () => (
       ))}
     </ul>
 
-    <h2>🗣 Language</h2>
+    <h2 style={{ backgroundColor: colors.PURPLE, color: colors.WHITE }}>
+      🗣 Language
+    </h2>
 
     <ul>
       {data.languageSkills.map((language) => (
