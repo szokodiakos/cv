@@ -13,6 +13,7 @@ const colors = {
 }
 
 const maxWidth = 650
+const borderRadius = 18
 
 const Page = styled.div`
   max-width: ${maxWidth}px;
@@ -23,15 +24,39 @@ const Page = styled.div`
 
 const Paragraph = styled.p`
   white-space: pre-wrap;
-  margin: 0px;
+`
+
+const Span = styled.span`
+  white-space: pre-wrap;
 `
 
 const ProfilePic = styled.img`
   height: 10em;
+  border-radius: ${borderRadius}px;
 `
 
 const Logo = styled.img`
   height: 1em;
+`
+
+const ListItem = styled.li`
+  margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
+  list-style-type: none;
+`
+
+const InnerListItem = styled.li`
+  margin-left: 78px;
+
+  &:before {
+    display: inline-block;
+    content: "■";
+    margin-left: -17px;
+    padding-right: 8px;
+  }
+`
+
+const UnorderedList = styled.ul`
+  padding-left: 0px;
 `
 
 export const App = () => (
@@ -45,27 +70,28 @@ export const App = () => (
       style={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         marginTop: "1em",
         marginBottom: "1em",
       }}
     >
       <ProfilePic src={data.profile} alt="profile"></ProfilePic>
-      <ul>
-        <li>{data.location}</li>
-        <li>
+      <UnorderedList>
+        <InnerListItem>{data.location}</InnerListItem>
+        <InnerListItem>
           <a href={data.email}>💌 Email</a>
-        </li>
-        <li>
+        </InnerListItem>
+        <InnerListItem>
           <a href={data.gitHub}>
             <Logo src="github.png" alt="github"></Logo> GitHub
           </a>
-        </li>
-        <li>
+        </InnerListItem>
+        <InnerListItem>
           <a href={data.linkedIn}>
             <Logo src="linkedin.png" alt="linkedin"></Logo> LinkedIn
           </a>
-        </li>
-      </ul>
+        </InnerListItem>
+      </UnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -83,22 +109,15 @@ export const App = () => (
         <h2>🛠 Work Experience</h2>
       </Title>
 
-      <ul>
+      <UnorderedList>
         {data.workExperience.map((work, index) => {
-          const isLast = data.workExperience.length === index + 1
           return (
-            <li
-              key={work.to}
-              style={{
-                marginBottom: isLast ? "0" : "2em",
-                listStyleType: "none",
-              }}
-            >
+            <ListItem key={work.to} isLast={isLast(data.workExperience, index)}>
               <Work {...work}></Work>
-            </li>
+            </ListItem>
           )
         })}
-      </ul>
+      </UnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -106,23 +125,15 @@ export const App = () => (
         <h2>🎓 Education</h2>
       </Title>
 
-      <ul>
+      <UnorderedList>
         {data.education.map((education, index) => {
-          const isLast = data.education.length === index + 1
-
           return (
-            <li
-              key={education.to}
-              style={{
-                marginBottom: isLast ? "0" : "2em",
-                listStyleType: "none",
-              }}
-            >
+            <ListItem key={education.to} isLast={isLast(data.education, index)}>
               <Education {...education}></Education>
-            </li>
+            </ListItem>
           )
         })}
-      </ul>
+      </UnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -130,13 +141,13 @@ export const App = () => (
         <h2>🗣 Language</h2>
       </Title>
 
-      <ul>
+      <UnorderedList>
         {data.languageSkills.map((language) => (
-          <li key={language.language}>
+          <InnerListItem key={language.language}>
             <Language {...language}></Language>
-          </li>
+          </InnerListItem>
         ))}
-      </ul>
+      </UnorderedList>
     </div>
 
     <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
@@ -145,9 +156,13 @@ export const App = () => (
   </Page>
 )
 
+function isLast(array, index) {
+  return array.length === index + 1
+}
+
 const ActualTitleWrapper = styled.div`
   position: absolute;
-  left: 0;
+  left: 0px;
   width: 100%;
 `
 
@@ -170,38 +185,38 @@ const Title = ({ children, style }) => (
   </div>
 )
 
-const InnerListItem = styled.li`
-  margin-left: 38px;
-`
-
 const Work = ({ company, title, where, to, from, description, keywords }) => (
   <>
-    <ListItem
+    <ListItemWithImage
       image={company.logo}
       title={company.name}
       subTitle={title}
-    ></ListItem>
-    <ul>
+    ></ListItemWithImage>
+    <UnorderedList>
       <InnerListItem>{where}</InnerListItem>
       <InnerListItem>
         {from} 👉 {to}
       </InnerListItem>
       <InnerListItem>
-        <Paragraph>{description.trim()}</Paragraph>
+        <Span>{description.trim()}</Span>
       </InnerListItem>
       <InnerListItem>Keywords: {keywords.join(", ")}</InnerListItem>
-    </ul>
+    </UnorderedList>
   </>
 )
 
 const Education = ({ school, logo, degree, to, from }) => (
   <>
-    <ListItem image={logo} title={school} subTitle={degree}></ListItem>
-    <ul>
+    <ListItemWithImage
+      image={logo}
+      title={school}
+      subTitle={degree}
+    ></ListItemWithImage>
+    <UnorderedList>
       <InnerListItem>
         {from} 👉 {to}
       </InnerListItem>
-    </ul>
+    </UnorderedList>
   </>
 )
 
@@ -213,21 +228,21 @@ const Language = ({ language, level }) => (
 
 const ListImage = styled.img`
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: ${borderRadius}px;
   height: 3em;
 `
 
 const ListTitle = styled.h3`
-  margin: 0;
+  margin: 0px;
   margin-left: 10px;
 `
 
 const ListSubtitle = styled.h4`
-  margin: 0;
+  margin: 0px;
   margin-left: 10px;
 `
 
-const ListItem = ({ image, title, subTitle }) => (
+const ListItemWithImage = ({ image, title, subTitle }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
     <ListImage src={image} alt={title} title={title}></ListImage>
 
