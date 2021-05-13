@@ -4,4 +4,4 @@ My Resume written in React. It is available online at <https://szokodiakos.githu
 
 ## Deploy
 
-To deploy to GitHub Pages, run `npm run deploy`.
+To deploy to GitHub Pages, run `yarn deploy`.
