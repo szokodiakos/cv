@@ -12,12 +12,10 @@ const Page = styled.div`
   padding-right: 25px;
 `
 
-const Paragraph = styled.p`
+const Description = styled.p`
   white-space: pre-wrap;
-`
-
-const Span = styled.span`
-  white-space: pre-wrap;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 `
 
 const ProfilePic = styled.img`
@@ -25,7 +23,7 @@ const ProfilePic = styled.img`
   border-radius: 18px;
 `
 
-const Logo = styled.img`
+const SquareLogo = styled.img`
   height: 1em;
   padding-left: 1px;
   padding-right: 5px;
@@ -74,11 +72,11 @@ export const App = () => (
           ✉️ <a href={data.email}>Email</a>
         </li>
         <li>
-          <Logo src="github.png" alt="github"></Logo>{" "}
+          <SquareLogo src="github.png" alt="github"></SquareLogo>{" "}
           <a href={data.gitHub}>{getAccount(data.gitHub)}</a>
         </li>
         <li>
-          <Logo src="linkedin-2.png" alt="linkedin"></Logo>{" "}
+          <SquareLogo src="linkedin-2.png" alt="linkedin"></SquareLogo>{" "}
           <a href={data.linkedIn}>{getAccount(data.linkedIn)}</a>
         </li>
       </ul>
@@ -89,9 +87,7 @@ export const App = () => (
         <h2>✨ About</h2>
       </Title>
 
-      <Paragraph style={{ marginTop: "1em", marginBottom: "1em" }}>
-        {data.about.trim()}
-      </Paragraph>
+      <Description>{data.about.trim()}</Description>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -131,13 +127,13 @@ export const App = () => (
         <h2>🗣 Language</h2>
       </Title>
 
-      <ul>
+      <UnorderedList>
         {data.languageSkills.map((language) => (
-          <li key={language.language}>
+          <li style={{ listStyleType: "none" }} key={language.language}>
             <Language {...language}></Language>
           </li>
         ))}
-      </ul>
+      </UnorderedList>
     </div>
 
     <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
@@ -177,7 +173,8 @@ const Title = ({ children, style }) => (
 )
 
 const IndentedListItem = styled.li`
-  margin-left: 78px;
+  margin-left: 60px;
+  list-style-type: none;
 `
 
 const Keywords = styled.div`
@@ -206,12 +203,16 @@ const Work = ({ company, title, where, to, from, description, keywords }) => (
       subTitle={title}
     ></ListItemWithImage>
     <UnorderedList>
-      <IndentedListItem>{where}</IndentedListItem>
       <IndentedListItem>
-        {from} 👉 {to}
+        <strong>{where}</strong>
       </IndentedListItem>
       <IndentedListItem>
-        <Span>{description.trim()}</Span>
+        <strong>
+          {from} 👉 {to}
+        </strong>
+      </IndentedListItem>
+      <IndentedListItem>
+        <Description>{description.trim()}</Description>
       </IndentedListItem>
       <IndentedListItem>
         <Keywords>
@@ -233,7 +234,9 @@ const Education = ({ school, logo, degree, to, from }) => (
     ></ListItemWithImage>
     <UnorderedList>
       <IndentedListItem>
-        {from} 👉 {to}
+        <strong>
+          {from} 👉 {to}
+        </strong>
       </IndentedListItem>
     </UnorderedList>
   </>
@@ -241,7 +244,7 @@ const Education = ({ school, logo, degree, to, from }) => (
 
 const Language = ({ language, level }) => (
   <>
-    {language}: {level}
+    <strong>{language}:</strong> {level}
   </>
 )
 

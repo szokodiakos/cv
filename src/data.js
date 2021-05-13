@@ -23,7 +23,7 @@ Constantly on the lookout to learn new things, as well as to share things he alr
       },
       title: "Software Consultant",
       where: "Amsterdam 🇳🇱",
-      to: "current",
+      to: "present",
       from: "2018 august",
       keywords: [
         "Node.js",
@@ -101,19 +101,19 @@ Web application to capture, save and load data visualizations made with R and Pr
   languageSkills: [
     {
       language: "🇭🇺 Hungarian",
-      level: "🙌 native",
+      level: "native 🙌",
     },
     {
       language: "🇺🇸 English",
-      level: "👌 fluent",
+      level: "fluent 👌",
     },
     {
       language: "🇩🇪 German",
-      level: "🤏 basic",
+      level: "basic 🤏",
     },
     {
       language: "🇳🇱 Dutch",
-      level: "🤏 basic",
+      level: "basic 🤏",
     },
   ],
 }
