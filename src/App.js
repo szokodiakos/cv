@@ -2,6 +2,7 @@ import React from "react"
 import { data } from "./data"
 import styled from "styled-components"
 import { colors } from "./colors"
+import { images } from "./images"
 
 const maxWidth = 650
 
@@ -65,18 +66,18 @@ export const App = () => (
         marginBottom: "1em",
       }}
     >
-      <ProfilePic src={data.profile} alt="profile"></ProfilePic>
+      <ProfilePic src={images[data.profile]} alt="profile"></ProfilePic>
       <ul>
         <li>{data.location}</li>
         <li>
           ✉️ <a href={data.email}>Email</a>
         </li>
         <li>
-          <SquareLogo src="github.png" alt="github"></SquareLogo>{" "}
+          <SquareLogo src={images["github.png"]} alt="github"></SquareLogo>{" "}
           <a href={data.gitHub}>{getAccount(data.gitHub)}</a>
         </li>
         <li>
-          <SquareLogo src="linkedin-2.png" alt="linkedin"></SquareLogo>{" "}
+          <SquareLogo src={images["linkedin.png"]} alt="linkedin"></SquareLogo>{" "}
           <a href={data.linkedIn}>{getAccount(data.linkedIn)}</a>
         </li>
       </ul>
@@ -266,7 +267,7 @@ const ListSubtitle = styled.h4`
 
 const ListItemWithImage = ({ image, title, subTitle }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
-    <ListImage src={image} alt={title} title={title}></ListImage>
+    <ListImage src={images[image]} alt={title} title={title}></ListImage>
 
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ListTitle>{title}</ListTitle>
