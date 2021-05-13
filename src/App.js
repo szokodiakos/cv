@@ -1,19 +1,9 @@
 import React from "react"
 import { data } from "./data"
 import styled from "styled-components"
-
-const colors = {
-  WHITE: "#FFFFFF",
-  GREEN: "#32A995",
-  YELLOW: "#F6A008",
-  ORANGE: "#F25846",
-  RED: "#C4253F",
-  PURPLE: "#6138C2",
-  BLUE: "#1D74CA",
-}
+import { colors } from "./colors"
 
 const maxWidth = 650
-const borderRadius = 18
 
 const Page = styled.div`
   max-width: ${maxWidth}px;
@@ -32,32 +22,34 @@ const Span = styled.span`
 
 const ProfilePic = styled.img`
   height: 10em;
-  border-radius: ${borderRadius}px;
+  border-radius: 18px;
 `
 
 const Logo = styled.img`
   height: 1em;
+  padding-left: 1px;
+  padding-right: 5px;
 `
 
-const ListItem = styled.li`
-  margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
+const NoDotListItem = styled.li`
   list-style-type: none;
 `
 
-const InnerListItem = styled.li`
-  margin-left: 78px;
-
-  &:before {
-    display: inline-block;
-    content: "■";
-    margin-left: -17px;
-    padding-right: 8px;
-  }
+const ListItem = styled(NoDotListItem)`
+  margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
 `
 
 const UnorderedList = styled.ul`
   padding-left: 0px;
 `
+
+function getAccount(url) {
+  return `/${last(url.split("/"))}`
+}
+
+function last(arr) {
+  return arr[arr.length - 1]
+}
 
 export const App = () => (
   <Page>
@@ -76,22 +68,20 @@ export const App = () => (
       }}
     >
       <ProfilePic src={data.profile} alt="profile"></ProfilePic>
-      <UnorderedList>
-        <InnerListItem>{data.location}</InnerListItem>
-        <InnerListItem>
-          <a href={data.email}>💌 Email</a>
-        </InnerListItem>
-        <InnerListItem>
-          <a href={data.gitHub}>
-            <Logo src="github.png" alt="github"></Logo> GitHub
-          </a>
-        </InnerListItem>
-        <InnerListItem>
-          <a href={data.linkedIn}>
-            <Logo src="linkedin.png" alt="linkedin"></Logo> LinkedIn
-          </a>
-        </InnerListItem>
-      </UnorderedList>
+      <ul>
+        <li>{data.location}</li>
+        <li>
+          ✉️ <a href={data.email}>Email</a>
+        </li>
+        <li>
+          <Logo src="github.png" alt="github"></Logo>{" "}
+          <a href={data.gitHub}>{getAccount(data.gitHub)}</a>
+        </li>
+        <li>
+          <Logo src="linkedin-2.png" alt="linkedin"></Logo>{" "}
+          <a href={data.linkedIn}>{getAccount(data.linkedIn)}</a>
+        </li>
+      </ul>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -141,13 +131,13 @@ export const App = () => (
         <h2>🗣 Language</h2>
       </Title>
 
-      <UnorderedList>
+      <ul>
         {data.languageSkills.map((language) => (
-          <InnerListItem key={language.language}>
+          <li key={language.language}>
             <Language {...language}></Language>
-          </InnerListItem>
+          </li>
         ))}
-      </UnorderedList>
+      </ul>
     </div>
 
     <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
@@ -167,9 +157,10 @@ const ActualTitleWrapper = styled.div`
 `
 
 const ActualTitle = styled.div`
-  max-width: ${maxWidth}px;
+  max-width: ${maxWidth + 25}px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 25px;
 `
 
 const PhantomTitle = styled.div`
@@ -185,6 +176,28 @@ const Title = ({ children, style }) => (
   </div>
 )
 
+const IndentedListItem = styled.li`
+  margin-left: 78px;
+`
+
+const Keywords = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+const Keyword = styled.div`
+  border: 1px solid ${colors.ORANGE};
+  border-radius: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 0.8em;
+`
+
 const Work = ({ company, title, where, to, from, description, keywords }) => (
   <>
     <ListItemWithImage
@@ -193,14 +206,20 @@ const Work = ({ company, title, where, to, from, description, keywords }) => (
       subTitle={title}
     ></ListItemWithImage>
     <UnorderedList>
-      <InnerListItem>{where}</InnerListItem>
-      <InnerListItem>
+      <IndentedListItem>{where}</IndentedListItem>
+      <IndentedListItem>
         {from} 👉 {to}
-      </InnerListItem>
-      <InnerListItem>
+      </IndentedListItem>
+      <IndentedListItem>
         <Span>{description.trim()}</Span>
-      </InnerListItem>
-      <InnerListItem>Keywords: {keywords.join(", ")}</InnerListItem>
+      </IndentedListItem>
+      <IndentedListItem>
+        <Keywords>
+          {keywords.map((keyword) => (
+            <Keyword key={keyword}>{keyword}</Keyword>
+          ))}
+        </Keywords>
+      </IndentedListItem>
     </UnorderedList>
   </>
 )
@@ -213,9 +232,9 @@ const Education = ({ school, logo, degree, to, from }) => (
       subTitle={degree}
     ></ListItemWithImage>
     <UnorderedList>
-      <InnerListItem>
+      <IndentedListItem>
         {from} 👉 {to}
-      </InnerListItem>
+      </IndentedListItem>
     </UnorderedList>
   </>
 )
@@ -228,7 +247,7 @@ const Language = ({ language, level }) => (
 
 const ListImage = styled.img`
   border: 1px solid black;
-  border-radius: ${borderRadius}px;
+  border-radius: 18px;
   height: 3em;
 `
 
