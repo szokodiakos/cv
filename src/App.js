@@ -15,8 +15,6 @@ const Page = styled.div`
 
 const Description = styled.p`
   white-space: pre-wrap;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
 `
 
 const ProfilePic = styled.img`
@@ -30,15 +28,19 @@ const SquareLogo = styled.img`
   padding-right: 5px;
 `
 
+const NoDotUnorderedList = styled.ul`
+  list-style-type: none;
+`
+
 const NoDotListItem = styled.li`
   list-style-type: none;
 `
 
-const ListItem = styled(NoDotListItem)`
+const ListItemWithVerticalSpace = styled(NoDotListItem)`
   margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
 `
 
-const UnorderedList = styled.ul`
+const NoPaddingUnorderedList = styled.ul`
   padding-left: 0px;
 `
 
@@ -67,7 +69,7 @@ export const App = () => (
       }}
     >
       <ProfilePic src={images[data.profile]} alt="profile"></ProfilePic>
-      <ul>
+      <NoDotUnorderedList style={{ paddingLeft: 10 }}>
         <li>{data.location}</li>
         <li>
           ✉️ <a href={data.email}>Email</a>
@@ -80,7 +82,7 @@ export const App = () => (
           <SquareLogo src={images["linkedin.png"]} alt="linkedin"></SquareLogo>{" "}
           <a href={data.linkedIn}>{getAccount(data.linkedIn)}</a>
         </li>
-      </ul>
+      </NoDotUnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -96,15 +98,18 @@ export const App = () => (
         <h2>🛠 Work Experience</h2>
       </Title>
 
-      <UnorderedList>
+      <NoPaddingUnorderedList>
         {data.workExperience.map((work, index) => {
           return (
-            <ListItem key={work.to} isLast={isLast(data.workExperience, index)}>
+            <ListItemWithVerticalSpace
+              key={work.to}
+              isLast={isLast(data.workExperience, index)}
+            >
               <Work {...work}></Work>
-            </ListItem>
+            </ListItemWithVerticalSpace>
           )
         })}
-      </UnorderedList>
+      </NoPaddingUnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -112,15 +117,18 @@ export const App = () => (
         <h2>🎓 Education</h2>
       </Title>
 
-      <UnorderedList>
+      <NoPaddingUnorderedList>
         {data.education.map((education, index) => {
           return (
-            <ListItem key={education.to} isLast={isLast(data.education, index)}>
+            <ListItemWithVerticalSpace
+              key={education.to}
+              isLast={isLast(data.education, index)}
+            >
               <Education {...education}></Education>
-            </ListItem>
+            </ListItemWithVerticalSpace>
           )
         })}
-      </UnorderedList>
+      </NoPaddingUnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
@@ -128,13 +136,13 @@ export const App = () => (
         <h2>🗣 Language</h2>
       </Title>
 
-      <UnorderedList>
+      <NoPaddingUnorderedList>
         {data.languageSkills.map((language) => (
           <li style={{ listStyleType: "none" }} key={language.language}>
             <Language {...language}></Language>
           </li>
         ))}
-      </UnorderedList>
+      </NoPaddingUnorderedList>
     </div>
 
     <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
@@ -203,7 +211,7 @@ const Work = ({ company, title, where, to, from, description, keywords }) => (
       title={company.name}
       subTitle={title}
     ></ListItemWithImage>
-    <UnorderedList>
+    <NoPaddingUnorderedList>
       <IndentedListItem>
         <strong>{where}</strong>
       </IndentedListItem>
@@ -222,7 +230,7 @@ const Work = ({ company, title, where, to, from, description, keywords }) => (
           ))}
         </Keywords>
       </IndentedListItem>
-    </UnorderedList>
+    </NoPaddingUnorderedList>
   </>
 )
 
@@ -233,13 +241,13 @@ const Education = ({ school, logo, degree, to, from }) => (
       title={school}
       subTitle={degree}
     ></ListItemWithImage>
-    <UnorderedList>
+    <NoPaddingUnorderedList>
       <IndentedListItem>
         <strong>
           {from} 👉 {to}
         </strong>
       </IndentedListItem>
-    </UnorderedList>
+    </NoPaddingUnorderedList>
   </>
 )
 
