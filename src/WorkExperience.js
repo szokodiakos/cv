@@ -79,6 +79,7 @@ const Keywords = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  cursor: default;
 `
 
 const Keyword = styled.div`
@@ -91,4 +92,10 @@ const Keyword = styled.div`
   margin-right: 5px;
   margin-top: 5px;
   font-size: 0.8em;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: ${colors.ORANGE};
+    color: ${colors.WHITE};
+  }
 `
