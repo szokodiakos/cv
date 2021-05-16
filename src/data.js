@@ -1,8 +1,10 @@
+import { images } from "./images"
+
 export const data = {
   name: "Ákos Szokodi",
   title: "Software Consultant",
   location: "🇳🇱 Amsterdam area",
-  profile: "profile.png",
+  profile: images["profile.png"],
   email: "mailto:szokodiakos+cv@gmail.com",
   gitHub: "https://github.com/szokodiakos",
   linkedIn: "https://linkedin.com/in/szokodiakos",
@@ -19,7 +21,7 @@ Constantly on the lookout to learn new things, as well as to share things he alr
     {
       company: {
         name: "Reaktor",
-        logo: "reaktor.png",
+        logo: images["reaktor.png"],
       },
       title: "Software Consultant",
       where: "Amsterdam 🇳🇱",
@@ -54,7 +56,7 @@ When not working for a client, helps the Reaktor Talent Growth Team by both lead
     {
       company: {
         name: "Coding Sans",
-        logo: "codingsans.png",
+        logo: images["codingsans.png"],
       },
       title: "Software Developer",
       where: "Budapest 🇭🇺",
@@ -70,7 +72,7 @@ Authored various technology-related posts on the company blog.
     {
       company: {
         name: "Quanopt",
-        logo: "quanopt.png",
+        logo: images["quanopt.png"],
       },
       title: "Junior Software Developer",
       where: "Budapest 🇭🇺",
@@ -85,14 +87,14 @@ Web application to capture, save and load data visualizations made with R and Pr
   education: [
     {
       school: "Budapest University of Technology and Economics",
-      logo: "bme.png",
+      logo: images["bme.png"],
       degree: "Computer Engineering MSc",
       to: "2016 january",
       from: "2014 january",
     },
     {
       school: "Budapest University of Technology and Economics",
-      logo: "bme.png",
+      logo: images["bme.png"],
       degree: "Computer Engineering BSc",
       to: "2014 january",
       from: "2010 september",
