@@ -1,6 +1,6 @@
 import React from "react"
 import { data } from "./data"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { colors } from "./colors"
 import { images } from "./images"
 
@@ -28,20 +28,29 @@ const SquareLogo = styled.img`
   padding-right: 5px;
 `
 
+const noDotCss = css`
+  list-style-type: none;
+`
+
 const NoDotUnorderedList = styled.ul`
-  list-style-type: none;
+  ${noDotCss}
 `
 
-const NoDotListItem = styled.li`
-  list-style-type: none;
-`
-
-const ListItemWithVerticalSpace = styled(NoDotListItem)`
-  margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
+const noPaddingLeftCss = css`
+  padding-left: 0px;
 `
 
 const NoPaddingUnorderedList = styled.ul`
-  padding-left: 0px;
+  ${noPaddingLeftCss}
+`
+
+const NoPaddingNoDotUnorderedList = styled(NoPaddingUnorderedList)`
+  ${noDotCss}
+  ${noPaddingLeftCss}
+`
+
+const ListItemWithVerticalSpace = styled.li`
+  margin-bottom: ${({ isLast }) => (isLast ? "0" : "2em")};
 `
 
 function getAccount(url) {
@@ -54,10 +63,10 @@ function last(arr) {
 
 export const App = () => (
   <Page>
-    <Title style={{ backgroundColor: colors.GREEN, color: colors.WHITE }}>
+    <MainTitle>
       <h1 style={{ textAlign: "center", marginBottom: "0px" }}>{data.name}</h1>
       <h2 style={{ textAlign: "center", marginTop: "0px" }}>{data.title}</h2>
-    </Title>
+    </MainTitle>
 
     <div
       style={{
@@ -86,19 +95,19 @@ export const App = () => (
     </div>
 
     <div style={{ marginBottom: "1em" }}>
-      <Title style={{ backgroundColor: colors.YELLOW, color: colors.WHITE }}>
+      <AboutTitle>
         <h2>✨ About</h2>
-      </Title>
+      </AboutTitle>
 
       <Description>{data.about.trim()}</Description>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
-      <Title style={{ backgroundColor: colors.ORANGE, color: colors.WHITE }}>
+      <WorkExperienceTitle>
         <h2>🛠 Work Experience</h2>
-      </Title>
+      </WorkExperienceTitle>
 
-      <NoPaddingUnorderedList>
+      <NoPaddingNoDotUnorderedList>
         {data.workExperience.map((work, index) => {
           return (
             <ListItemWithVerticalSpace
@@ -109,15 +118,15 @@ export const App = () => (
             </ListItemWithVerticalSpace>
           )
         })}
-      </NoPaddingUnorderedList>
+      </NoPaddingNoDotUnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
-      <Title style={{ backgroundColor: colors.RED, color: colors.WHITE }}>
+      <EducationTitle>
         <h2>🎓 Education</h2>
-      </Title>
+      </EducationTitle>
 
-      <NoPaddingUnorderedList>
+      <NoPaddingNoDotUnorderedList>
         {data.education.map((education, index) => {
           return (
             <ListItemWithVerticalSpace
@@ -128,13 +137,13 @@ export const App = () => (
             </ListItemWithVerticalSpace>
           )
         })}
-      </NoPaddingUnorderedList>
+      </NoPaddingNoDotUnorderedList>
     </div>
 
     <div style={{ marginBottom: "1em" }}>
-      <Title style={{ backgroundColor: colors.PURPLE, color: colors.WHITE }}>
+      <LanguageTitle>
         <h2>🗣 Language</h2>
-      </Title>
+      </LanguageTitle>
 
       <NoPaddingUnorderedList>
         {data.languageSkills.map((language) => (
@@ -145,9 +154,9 @@ export const App = () => (
       </NoPaddingUnorderedList>
     </div>
 
-    <Title style={{ backgroundColor: colors.BLUE, color: colors.WHITE }}>
+    <FooterTitle>
       <h2 style={{ textAlign: "center" }}>✌️</h2>
-    </Title>
+    </FooterTitle>
   </Page>
 )
 
@@ -172,14 +181,44 @@ const PhantomTitle = styled.div`
   visibility: hidden;
 `
 
-const Title = ({ children, style }) => (
+const Title = ({ children, className }) => (
   <div style={{ overflow: "auto" }}>
-    <ActualTitleWrapper style={style}>
+    <ActualTitleWrapper className={className}>
       <ActualTitle>{children}</ActualTitle>
     </ActualTitleWrapper>
     <PhantomTitle>{children}</PhantomTitle>
   </div>
 )
+
+const MainTitle = styled(Title)`
+  background-color: ${colors.GREEN};
+  color: ${colors.WHITE};
+`
+
+const AboutTitle = styled(Title)`
+  background-color: ${colors.YELLOW};
+  color: ${colors.WHITE};
+`
+
+const WorkExperienceTitle = styled(Title)`
+  background-color: ${colors.ORANGE};
+  color: ${colors.WHITE};
+`
+
+const EducationTitle = styled(Title)`
+  background-color: ${colors.RED};
+  color: ${colors.WHITE};
+`
+
+const LanguageTitle = styled(Title)`
+  background-color: ${colors.PURPLE};
+  color: ${colors.WHITE};
+`
+
+const FooterTitle = styled(Title)`
+  background-color: ${colors.BLUE};
+  color: ${colors.WHITE};
+`
 
 const IndentedListItem = styled.li`
   margin-left: 60px;
