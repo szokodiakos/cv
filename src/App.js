@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { Header } from "./Header"
 import { maxWidth } from "./constants"
 import { About } from "./About"

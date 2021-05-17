@@ -1,15 +1,25 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
-export const ListItemWithImage = ({ image, title, subTitle }) => (
-  <div style={{ display: "flex", alignItems: "center" }}>
+export const ImageWithTitle = ({ image, title, subTitle }) => (
+  <Wrapper>
     <ListImage src={image} alt={title} title={title}></ListImage>
 
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <TitleWrapper>
       <ListTitle>{title}</ListTitle>
       <ListSubtitle>{subTitle}</ListSubtitle>
-    </div>
-  </div>
+    </TitleWrapper>
+  </Wrapper>
 )
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const ListImage = styled.img`
   border: 1px solid black;

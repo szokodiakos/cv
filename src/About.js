@@ -1,18 +1,18 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { colors } from "./colors"
-import { Description } from "./commonStyled"
+import { Description, Div } from "./commonStyled"
 import { data } from "./data"
 import { Title } from "./Title"
 
 export const About = () => (
-  <div style={{ marginBottom: "1em" }}>
+  <Div verticalSpace>
     <AboutTitle>
       <h2>✨ About</h2>
     </AboutTitle>
 
     <Description>{data.about.trim()}</Description>
-  </div>
+  </Div>
 )
 
 const AboutTitle = styled(Title)`

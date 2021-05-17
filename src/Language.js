@@ -1,23 +1,23 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { colors } from "./colors"
-import { NoPaddingUnorderedList } from "./commonStyled"
+import { Div, UnorderedList } from "./commonStyled"
 import { data } from "./data"
 import { Title } from "./Title"
 
 export const Language = () => (
-  <div style={{ marginBottom: "1em" }}>
+  <Div verticalSpace>
     <LanguageTitle>
       <h2>🗣 Language</h2>
     </LanguageTitle>
 
-    <NoPaddingUnorderedList>
+    <UnorderedList noPadding noDot>
       {data.languageSkills.map((language) => (
-        <li style={{ listStyleType: "none" }} key={language.language}>
+        <li key={language.language}>
           <LanguageItem {...language}></LanguageItem>
         </li>
       ))}
-    </NoPaddingUnorderedList>
-  </div>
+    </UnorderedList>
+  </Div>
 )
 
 const LanguageTitle = styled(Title)`

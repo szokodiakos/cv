@@ -1,35 +1,31 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { colors } from "./colors"
-import {
-  Description,
-  ListItemWithVerticalSpace,
-  NoPaddingNoDotIndentedUnorderedList,
-  NoPaddingNoDotUnorderedList,
-} from "./commonStyled"
+import { Description, Div, ListItem, UnorderedList } from "./commonStyled"
 import { data } from "./data"
 import { isLast } from "./isLast"
-import { ListItemWithImage } from "./ListItemWithImage"
+import { ImageWithTitle } from "./ImageWithTitle"
 import { Title } from "./Title"
 
 export const WorkExperience = () => (
-  <div style={{ marginBottom: "1em" }}>
+  <Div verticalSpace>
     <WorkExperienceTitle>
       <h2>🛠 Work Experience</h2>
     </WorkExperienceTitle>
 
-    <NoPaddingNoDotUnorderedList>
+    <UnorderedList noPadding noDot>
       {data.workExperience.map((work, index) => {
         return (
-          <ListItemWithVerticalSpace
+          <ListItem
+            verticalSpace
             key={work.to}
             isLast={isLast(data.workExperience, index)}
           >
             <WorkItem {...work}></WorkItem>
-          </ListItemWithVerticalSpace>
+          </ListItem>
         )
       })}
-    </NoPaddingNoDotUnorderedList>
-  </div>
+    </UnorderedList>
+  </Div>
 )
 
 const WorkExperienceTitle = styled(Title)`
@@ -47,12 +43,12 @@ const WorkItem = ({
   keywords,
 }) => (
   <>
-    <ListItemWithImage
+    <ImageWithTitle
       image={company.logo}
       title={company.name}
       subTitle={title}
-    ></ListItemWithImage>
-    <NoPaddingNoDotIndentedUnorderedList>
+    ></ImageWithTitle>
+    <UnorderedList noPadding noDot indented>
       <li>
         <strong>{where}</strong>
       </li>
@@ -71,7 +67,7 @@ const WorkItem = ({
           ))}
         </Keywords>
       </li>
-    </NoPaddingNoDotIndentedUnorderedList>
+    </UnorderedList>
   </>
 )
 

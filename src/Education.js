@@ -1,34 +1,31 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { colors } from "./colors"
-import {
-  NoPaddingNoDotUnorderedList,
-  ListItemWithVerticalSpace,
-  NoPaddingNoDotIndentedUnorderedList,
-} from "./commonStyled"
+import { ListItem, UnorderedList, Div } from "./commonStyled"
 import { data } from "./data"
 import { isLast } from "./isLast"
-import { ListItemWithImage } from "./ListItemWithImage"
+import { ImageWithTitle } from "./ImageWithTitle"
 import { Title } from "./Title"
 
 export const Education = () => (
-  <div style={{ marginBottom: "1em" }}>
+  <Div verticalSpace>
     <EducationTitle>
       <h2>🎓 Education</h2>
     </EducationTitle>
 
-    <NoPaddingNoDotUnorderedList>
+    <UnorderedList noPadding noDot>
       {data.education.map((education, index) => {
         return (
-          <ListItemWithVerticalSpace
+          <ListItem
+            verticalSpace
             key={education.to}
             isLast={isLast(data.education, index)}
           >
             <EducationItem {...education}></EducationItem>
-          </ListItemWithVerticalSpace>
+          </ListItem>
         )
       })}
-    </NoPaddingNoDotUnorderedList>
-  </div>
+    </UnorderedList>
+  </Div>
 )
 
 const EducationTitle = styled(Title)`
@@ -38,17 +35,17 @@ const EducationTitle = styled(Title)`
 
 const EducationItem = ({ school, logo, degree, to, from }) => (
   <>
-    <ListItemWithImage
+    <ImageWithTitle
       image={logo}
       title={school}
       subTitle={degree}
-    ></ListItemWithImage>
-    <NoPaddingNoDotIndentedUnorderedList>
+    ></ImageWithTitle>
+    <UnorderedList noPadding noDot indented>
       <li>
         <strong>
           {from} 👉 {to}
         </strong>
       </li>
-    </NoPaddingNoDotIndentedUnorderedList>
+    </UnorderedList>
   </>
 )

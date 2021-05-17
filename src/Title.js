@@ -1,15 +1,19 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { maxWidth } from "./constants"
 
 export const Title = ({ children, className }) => (
-  <div style={{ overflow: "auto" }}>
+  <NoMarginCollapseDiv>
     <ActualTitleWrapper className={className}>
       <ActualTitle>{children}</ActualTitle>
     </ActualTitleWrapper>
     <PhantomTitle>{children}</PhantomTitle>
-  </div>
+  </NoMarginCollapseDiv>
 )
+
+const NoMarginCollapseDiv = styled.div`
+  overflow: auto;
+`
 
 const ActualTitleWrapper = styled.div`
   position: absolute;
