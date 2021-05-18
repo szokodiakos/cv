@@ -1,6 +1,7 @@
 import styled from "styled-components/macro"
 import { images } from "./images"
 import * as S from "./commonStyled"
+import { Anchor } from "./Anchor"
 import { data } from "./data"
 
 export const Basics = () => (
@@ -9,15 +10,15 @@ export const Basics = () => (
     <UnorderedList noDot>
       <li>{data.location}</li>
       <li>
-        ✉️ <a href={data.email}>Email</a>
+        ✉️ <Anchor href={data.email}>Email</Anchor>
       </li>
       <li>
         <SquareLogo src={images["github.png"]} alt="github"></SquareLogo>{" "}
-        <a href={data.gitHub}>{getAccount(data.gitHub)}</a>
+        <Anchor href={data.gitHub}>{getAccount(data.gitHub)}</Anchor>
       </li>
       <li>
         <SquareLogo src={images["linkedin.png"]} alt="linkedin"></SquareLogo>{" "}
-        <a href={data.linkedIn}>{getAccount(data.linkedIn)}</a>
+        <Anchor href={data.linkedIn}>{getAccount(data.linkedIn)}</Anchor>
       </li>
     </UnorderedList>
   </Wrapper>
