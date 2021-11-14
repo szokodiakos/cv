@@ -11,7 +11,7 @@ export const About = () => (
       <h2>✨ About</h2>
     </AboutTitle>
 
-    <Description>{data.about.trim()}</Description>
+    <Description indented>{data.about.trim()}</Description>
   </Div>
 )
 

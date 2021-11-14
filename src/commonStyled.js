@@ -1,5 +1,11 @@
 import styled, { css } from "styled-components/macro"
 
+const indented = ({ indented }) =>
+  indented &&
+  css`
+    margin-left: 60px;
+  `
+
 export const UnorderedList = styled.ul`
   ${({ noDot }) =>
     noDot &&
@@ -11,11 +17,7 @@ export const UnorderedList = styled.ul`
     css`
       padding-left: 0;
     `}
-  ${({ indented }) =>
-    indented &&
-    css`
-      margin-left: 60px;
-    `}
+  ${indented}
 `
 
 export const ListItem = styled.li`
@@ -28,6 +30,7 @@ export const ListItem = styled.li`
 
 export const Description = styled.p`
   white-space: pre-wrap;
+  ${indented}
 `
 
 export const Div = styled.div`

@@ -10,7 +10,7 @@ export const Language = () => (
       <h2>🗣 Language</h2>
     </LanguageTitle>
 
-    <UnorderedList noPadding noDot>
+    <UnorderedList noPadding noDot indented>
       {data.languageSkills.map((language) => (
         <li key={language.language}>
           <LanguageItem {...language}></LanguageItem>
