@@ -11,11 +11,13 @@ export const data = {
   about: `
 Passionate about software quality and design, such as UX design, design patterns, clean coding, testing.
 
-Believes that things should be done as simple as possible with pragmatic approaches and that solutions doesn't always require coding. Hence, thinks that learning soft-skills is as important as learning hard tech skills as a Software Engineer.
+I believe that things should be done as simple as possible with pragmatic approaches and that solutions doesn't always require coding. Hence, I think that nurturing soft-skills is as important -- or maybe more -- as learning hard technical skills as a developer.
 
-Likes to work on both backend and frontend, fluent in {Type|Java}Script, although believes polyglot development is a good philosophy as devs should not be locked into a single language and should always adapt the technology according to the problem.
+I'm happy to work on both backend and frontend, fluent in {Type|Java}Script, although I believe polyglot development is a good philosophy as devs should not be locked into a single language or technology and should always adapt the according to the problem.
 
-Constantly on the lookout to learn new things, as well as to share things he already knows via blog posts or some other form of knowledge sharing.
+I like to put my focus on the team rather than myself; I feel that if I can enable trust, joy, better collaboration among team members, the team will be able to achieve great results together.
+
+I'm constantly on the lookout to learn new things, as well as to share things I already know via blog posts or some other form of knowledge sharing.
 `,
   workExperience: [
     {
@@ -30,17 +32,21 @@ Constantly on the lookout to learn new things, as well as to share things he alr
       keywords: [
         "Node.js",
         "TypeScript",
+        "React",
+        "SEO",
         "Kafka",
         "Kubernetes",
         "Java",
         "Kotlin",
-        "Spring",
+        "Spring Boot",
         "Jenkins",
         "Postgres",
         "Next.js",
       ],
       description: `
-Works for premium brands across the globe, helping clients achieve their goals.
+Working for premium brands across the globe, helping clients achieve their goals.
+
+Participated in a client's Search Engine Optimization (SEO) team where I helped to enable SEO experts to fine tune the e-commerce website's SEO properties for better search ranking. Also built a visual search keyword explorer tool so that the experts can make decisions based on keyword trends.
 
 Laid the foundations of various Kafka-based streaming solutions that sped up data transmission across the whole client's platform globally, improving both customer and operator experience.
 
@@ -48,9 +54,9 @@ Participated in the introduction of SQL based data storage to help the client st
 
 Created campaign pages for various clothing brands, as well as provided other frontend teams with site data.
 
-Facilitates various gatherings such as daily standups, retrospectives, trainings.
+I usually also facilitate various gatherings such as daily standups, retrospectives, trainings.
 
-When not working for a client, helps the Reaktor Talent Growth Team by both leading and participating in interviews.
+When not working for a client, I help the Reaktor Talent Growth Team by both leading and participating in interviews.
 `,
     },
     {
@@ -80,7 +86,7 @@ Authored various technology-related posts on the company blog.
       from: "2013 june",
       keywords: ["R", "Shiny", "JavaScript", "Processing"],
       description: `
-Web application to capture, save and load data visualizations made with R and Processing.      
+Developed a web application to capture, save and load data visualizations made with R and Processing.      
 `,
     },
   ],
@@ -102,19 +108,19 @@ Web application to capture, save and load data visualizations made with R and Pr
   ],
   languageSkills: [
     {
-      language: "🇭🇺 Hungarian",
+      language: "Hungarian 🇭🇺",
       level: "native 🙌",
     },
     {
-      language: "🇺🇸 English",
+      language: "English 🇺🇸",
       level: "fluent 👌",
     },
     {
-      language: "🇩🇪 German",
+      language: "German 🇩🇪",
       level: "basic 🤏",
     },
     {
-      language: "🇳🇱 Dutch",
+      language: "Dutch 🇳🇱",
       level: "basic 🤏",
     },
   ],

@@ -27,6 +27,6 @@ const LanguageTitle = styled(Title)`
 
 const LanguageItem = ({ language, level }) => (
   <>
-    <strong>{language}:</strong> {level}
+    <strong>{language}</strong> {level}
   </>
 )
