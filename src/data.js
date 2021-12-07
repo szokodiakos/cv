@@ -9,11 +9,11 @@ export const data = {
   gitHub: "https://github.com/szokodiakos",
   linkedIn: "https://linkedin.com/in/szokodiakos",
   about: `
-Passionate about software quality and design, such as UX design, design patterns, clean coding, testing.
+Passionate about software quality and design, such as UX design, design patterns, clean coding and testing.
 
 I believe that things should be done as simple as possible with pragmatic approaches and that solutions doesn't always require coding. Hence, I think that nurturing soft-skills is as important -- or maybe more -- as learning hard technical skills as a developer.
 
-I'm happy to work on both backend and frontend, fluent in {Type|Java}Script, although I believe polyglot development is a good philosophy as devs should not be locked into a single language or technology and should always adapt the according to the problem.
+I'm happy to work on both backend and frontend, fluent in {Type|Java}Script, although I believe polyglot development is a good philosophy as devs should not be locked into a single language or technology and should always adapt the solution according to the problem.
 
 I like to put my focus on the team rather than myself; I feel that if I can enable trust, joy, better collaboration among team members, the team will be able to achieve great results together.
 
