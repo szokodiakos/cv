@@ -42,19 +42,25 @@ I'm constantly on the lookout to learn new things, as well as to share things I 
         "Jenkins",
         "Postgres",
         "Next.js",
+        "React Native"
       ],
       description: `
 Working for premium brands across the globe, helping clients achieve their goals.
 
-Participated in a client's Search Engine Optimization (SEO) team where I helped to enable SEO experts to fine tune the e-commerce website's SEO properties for better search ranking. Also built a visual search keyword explorer tool so that the experts can make decisions based on keyword trends.
+Some of the projects I've worked on:
+- Developed a cross-platform social media application for a televised home shopping company, which features video/text content uploads, interactions, livestreaming and more.
 
-Laid the foundations of various Kafka-based streaming solutions that sped up data transmission across the whole client's platform globally, improving both customer and operator experience.
+- Participated in a client's Search Engine Optimization (SEO) team where I helped to enable SEO experts to fine tune the e-commerce website's SEO properties for better search ranking. Also built a visual search keyword explorer tool so the SEO experts can make decisions based on keyword trends.
 
-Participated in the introduction of SQL based data storage to help the client steer away from expensive / legacy solutions.
+- Laid the foundations of various Kafka-based streaming solutions that sped up data transmission across the whole client's platform globally, improving both customer and operator experience.
 
-Created campaign pages for various clothing brands, as well as provided other frontend teams with site data.
+- Participated in the introduction of SQL based data storage to help the client steer away from expensive / legacy solutions.
 
-I usually also facilitate various gatherings such as daily standups, retrospectives, trainings.
+- Created campaign pages for various clothing brands, as well as provided other frontend teams with site data.
+
+- I usually also facilitate various gatherings such as daily standups, retrospectives, trainings.
+
+- I finished an internal several month long training course on team building, leading, dynamics and communication.
 
 When not working for a client, I help the Reaktor Talent Growth Team by both leading and participating in interviews.
 `,
