@@ -175,9 +175,9 @@ export const community = [
     text: "Alongside client work, helped the brand-new Lisbon office grow by taking care of newly hired colleagues and bringing along the established culture and Reaktorian spirit from Amsterdam.",
   },
   {
-    title: "Team Build Academy",
+    title: "Team Builder Academy",
     when: "2022",
-    text: "Completed Reaktor's Team Build Academy, an internal course on team building, leadership, team dynamics, and communication.",
+    text: "Completed Reaktor's Team Builder Academy, an internal course on team building, leadership, team dynamics, and communication.",
   },
 ]
 
