@@ -1,0 +1,66 @@
+---
+import { profile } from "../../data/cv"
+
+// Number words across both paragraphs so the reveal runs continuously.
+let index = 0
+const paragraphs = profile.intro.map((text) => text.split(" ").map((word) => ({ word, i: index++ })))
+---
+
+<section class="statement" data-track aria-label="Introduction">
+  <div class="statement__stage wrap">
+    <div class="statement__text" style={`--n: ${index}`}>
+      {
+        paragraphs.map((words) => (
+          <p>
+            {words.map(({ word, i }) => (
+              <Fragment>
+                <span class="statement__word" style={`--i: ${i}`}>
+                  {word}
+                </span>{" "}
+              </Fragment>
+            ))}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .statement__stage {
+    display: grid;
+    align-items: center;
+    padding-block: clamp(3rem, 10vh, 6rem);
+  }
+
+  .statement__text {
+    display: grid;
+    gap: 0.9em;
+    max-width: 26em;
+    font-size: clamp(1.6rem, 3.2vw, 2.55rem);
+    font-weight: 300;
+    line-height: 1.32;
+    letter-spacing: -0.012em;
+    text-wrap: pretty;
+  }
+
+  .statement__word {
+    white-space: nowrap;
+  }
+
+  /* Words settle from faint to full ink as the section is scrolled through. */
+  :global(.motion) .statement {
+    height: 240vh;
+  }
+
+  :global(.motion) .statement__stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  :global(.motion) .statement__word {
+    opacity: clamp(0.2, calc(var(--p, 1) * (var(--n) + 8) - var(--i)), 1);
+    transition: opacity 0.15s linear;
+  }
+</style>

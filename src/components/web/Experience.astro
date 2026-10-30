@@ -1,0 +1,145 @@
+---
+import Section from "./Section.astro"
+import { previous, projects, reaktor, technologies } from "../../data/cv"
+import { formatRange } from "../../lib/format"
+---
+
+<Section id="experience" label="Experience">
+  <article class="job">
+    <h3 class="job__title">{reaktor.company}</h3>
+    <p class="job__meta meta">
+      <span>{reaktor.role}, {reaktor.location}</span>
+      <span>{formatRange(reaktor.start, reaktor.end)}</span>
+    </p>
+    <div class="job__text">
+      {reaktor.description.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <h4 class="projects__label meta">Selected projects</h4>
+    <ul class="projects">
+      {
+        projects.map((project) => (
+          <li class="project">
+            <h5 class="project__title">
+              {project.title} <span class="project__focus meta">{project.focus}</span>
+            </h5>
+            <p>{project.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <dl class="tech" aria-label="Technologies">
+      {
+        technologies.map((group) => (
+          <div class="tech__group">
+            <dt class="meta">{group.name}</dt>
+            <dd>{group.items.join(", ")}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </article>
+
+  {
+    previous.map((job) => (
+      <article class="job job--earlier">
+        <h3 class="job__title">{job.company}</h3>
+        <p class="job__meta meta">
+          <span>
+            {job.role}, {job.location}
+          </span>
+          <span>{formatRange(job.start, job.end)}</span>
+        </p>
+        <div class="job__text">
+          <p>
+            {job.about} {job.description.join(" ")}
+          </p>
+        </div>
+        {job.keywords && <p class="job__keywords meta">{job.keywords.join(", ")}</p>}
+      </article>
+    ))
+  }
+</Section>
+
+<style>
+  .job {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .job + .job {
+    margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  }
+
+  .job__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .job--earlier .job__title {
+    font-size: 1.3rem;
+  }
+
+  .job__meta {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.25rem;
+  }
+
+  .job__text {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.6rem;
+  }
+
+  .projects__label {
+    margin-top: 1.75rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .projects {
+    list-style: none;
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .project {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .project__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.6rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .project__focus {
+    font-weight: 400;
+  }
+
+  .tech {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1.1rem 2rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .tech__group {
+    display: grid;
+    gap: 0.15rem;
+    align-content: start;
+  }
+
+  .job__keywords {
+    margin-top: 0.25rem;
+  }
+</style>

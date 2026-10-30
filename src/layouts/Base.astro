@@ -1,0 +1,51 @@
+---
+import "@fontsource-variable/hanken-grotesk/wght.css"
+import "@fontsource-variable/newsreader/opsz.css"
+import "../styles/global.css"
+import { getImage } from "astro:assets"
+import portrait from "../assets/profile.png"
+import { withBase } from "../lib/format"
+
+interface Props {
+  title: string
+  description: string
+  noindex?: boolean
+}
+
+const { title, description, noindex = false } = Astro.props
+const ogImage = await getImage({ src: portrait, width: 800, format: "jpg" })
+const canonical = new URL(Astro.url.pathname, Astro.site)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href={withBase("favicon.ico")} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase("favicon-32x32.png")} />
+    <link rel="apple-touch-icon" href={withBase("apple-touch-icon.png")} />
+    <script is:inline>
+      // Scroll choreography respects reduced motion; ?motion=on or ?motion=off overrides it for previews.
+      const override = new URLSearchParams(location.search).get("motion")
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches
+      if (override === "on" || (override !== "off" && !reduce)) {
+        document.documentElement.classList.add("motion")
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

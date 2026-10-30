@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro"
+import SiteBar from "../components/web/SiteBar.astro"
+import Hero from "../components/web/Hero.astro"
+import Statement from "../components/web/Statement.astro"
+import Experience from "../components/web/Experience.astro"
+import Details from "../components/web/Details.astro"
+import Contact from "../components/web/Contact.astro"
+import PrintCV from "../components/print/PrintCV.astro"
+import { profile } from "../data/cv"
+---
+
+<Base
+  title={`${profile.name}, ${profile.title.toLowerCase()}`}
+  description={`${profile.headline} ${profile.summary}`}
+>
+  <div class="web">
+    <SiteBar />
+    <Hero />
+    <main>
+      <Statement />
+      <Experience />
+      <Details />
+    </main>
+    <Contact />
+  </div>
+  <div class="print-only">
+    <PrintCV />
+  </div>
+</Base>
+
+<script>
+  import "../scripts/motion"
+</script>

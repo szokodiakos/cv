@@ -1,0 +1,60 @@
+---
+interface Props {
+  id: string
+  label: string
+}
+
+const { id, label } = Astro.props
+---
+
+<section class="section wrap" id={id} aria-labelledby={`${id}-label`}>
+  <span class="section__rule" data-view aria-hidden="true"></span>
+  <h2 class="section__label" id={`${id}-label`}>{label}</h2>
+  <div class="section__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--label) minmax(0, 1fr);
+    column-gap: var(--column-gap);
+    padding-block: clamp(2.75rem, 7vh, 4.5rem);
+  }
+
+  .section__rule {
+    position: absolute;
+    top: 0;
+    left: var(--gutter);
+    right: var(--gutter);
+    height: 1px;
+    background: var(--hairline);
+    transform-origin: left;
+  }
+
+  /* The rule draws itself in as the section scrolls into view. */
+  :global(.motion) .section__rule {
+    transform: scaleX(var(--v, 1));
+  }
+
+  .section__label {
+    padding-top: 0.3rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .section__body {
+    max-width: 40rem;
+  }
+
+  @media (max-width: 48rem) {
+    .section {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 1.25rem;
+    }
+  }
+</style>

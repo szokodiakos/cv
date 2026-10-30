@@ -1,0 +1,92 @@
+---
+import { links, profile } from "../../data/cv"
+import { withBase } from "../../lib/format"
+import LinkText from "../LinkText.astro"
+
+const [email, ...elsewhere] = links
+---
+
+<footer class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact__inner wrap">
+    <h2 id="contact-title" class="contact__title">Get in touch</h2>
+    <div class="contact__body">
+      <a class="contact__email" href={email.href}><LinkText text={email.display} /></a>
+      <ul class="contact__links">
+        {
+          elsewhere.map((link) => (
+            <li>
+              <a href={link.href} rel="me">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a class="button" href={withBase("akos-szokodi-cv.pdf")} download>Download PDF</a>
+        </li>
+      </ul>
+      <p class="contact__fineprint meta">
+        {profile.name}, {profile.location}. Updated {profile.updated}.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .contact {
+    margin-top: clamp(3rem, 8vh, 5rem);
+    padding-block: clamp(4rem, 12vh, 7rem) 2.5rem;
+    background: var(--tint);
+  }
+
+  .contact__inner {
+    display: grid;
+    grid-template-columns: var(--label) minmax(0, 1fr);
+    column-gap: var(--column-gap);
+    row-gap: 1.25rem;
+  }
+
+  .contact__title {
+    padding-top: 0.3rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .contact__body {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+  }
+
+  .contact__email {
+    max-width: 100%;
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+  }
+
+  .contact__links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .contact__fineprint {
+    margin-top: clamp(3rem, 8vh, 5rem);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 48rem) {
+    .contact__inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

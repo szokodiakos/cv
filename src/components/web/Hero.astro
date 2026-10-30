@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets"
+import portrait from "../../assets/profile.png"
+import { links, profile } from "../../data/cv"
+import { withBase } from "../../lib/format"
+---
+
+<header class="hero wrap" data-hero>
+  <Image
+    class="hero__photo"
+    src={portrait}
+    alt={`Portrait of ${profile.name}`}
+    widths={[112, 224, 336]}
+    sizes="7rem"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <h1 id="name" class="hero__name">{profile.name}</h1>
+  <p class="hero__title meta">
+    {profile.headline}
+  </p>
+  <ul class="hero__links">
+    {
+      links.map((link) => (
+        <li>
+          <a href={link.href} rel={link.label === "Email" ? undefined : "me"}>
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a class="button" href={withBase("akos-szokodi-cv.pdf")} download>Download PDF</a>
+    </li>
+  </ul>
+</header>
+
+<style>
+  .hero {
+    display: grid;
+    align-content: end;
+    justify-items: start;
+    min-height: 82svh;
+    padding-block: 7rem clamp(3rem, 9vh, 5.5rem);
+  }
+
+  .hero__photo {
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .hero__name {
+    font-size: clamp(3rem, 8vw, 6.25rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  .hero__title {
+    margin-top: 1.25rem;
+    font-size: 1.05rem;
+  }
+
+  .hero__links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+    margin-top: 2.25rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* One quiet entrance on load. */
+  :global(.motion) .hero > * {
+    animation: rise 1.1s var(--ease-out) backwards;
+  }
+
+  :global(.motion) .hero__name {
+    animation-delay: 0.08s;
+  }
+
+  :global(.motion) .hero__title {
+    animation-delay: 0.2s;
+  }
+
+  :global(.motion) .hero__links {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+  }
+</style>

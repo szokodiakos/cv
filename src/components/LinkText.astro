@@ -1,0 +1,25 @@
+---
+// Anybody draws "+" very small, which makes the email address hard to read.
+// Render it in the text face instead.
+interface Props {
+  text: string
+}
+
+const [first, ...rest] = Astro.props.text.split("+")
+---
+
+{first}{
+  rest.map((part) => (
+    <Fragment>
+      <span class="plus">+</span>
+      {part}
+    </Fragment>
+  ))
+}
+
+<style>
+  .plus {
+    font-family: var(--text);
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import Section from "./Section.astro"
+import { community, education, languages } from "../../data/cv"
+import { formatYears } from "../../lib/format"
+---
+
+<Section id="community" label="Beyond client work">
+  <ul class="items">
+    {
+      community.map((item) => (
+        <li class="item">
+          <h3 class="item__title">{item.title}</h3>
+          <p class="meta">{item.when}</p>
+          <p class="item__text">{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<Section id="education" label="Education">
+  <div class="item">
+    <h3 class="item__title">{education.school}</h3>
+    {
+      education.degrees.map((degree) => (
+        <p>
+          {degree.degree} <span class="meta inline">{formatYears(degree.start, degree.end)}</span>
+        </p>
+      ))
+    }
+    <p class="item__text meta">{education.note}</p>
+  </div>
+</Section>
+
+<Section id="languages" label="Languages">
+  <ul class="items items--tight">
+    {
+      languages.map((item) => (
+        <li>
+          {item.language} <span class="meta inline">{item.level}</span>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<style>
+  .items {
+    list-style: none;
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .items--tight {
+    gap: 0.35rem;
+  }
+
+  .item {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .item__title {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .item__text {
+    margin-top: 0.35rem;
+  }
+
+  .inline {
+    margin-left: 0.4rem;
+  }
+</style>

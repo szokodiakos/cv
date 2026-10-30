@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro"
+import PrintCV from "../components/print/PrintCV.astro"
+import { profile } from "../data/cv"
+---
+
+<Base title={`${profile.name}, CV (print)`} description={`Printable CV of ${profile.name}.`} noindex>
+  <PrintCV />
+</Base>
+
+<style is:global>
+  @media screen {
+    body {
+      background: #dfe3ec;
+      padding-block: 1px;
+    }
+  }
+</style>
